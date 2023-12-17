@@ -1,19 +1,23 @@
 # main.py
+# Import library yang dibutuhkan
 from flask import Flask, request, jsonify
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer  # Tambahkan import ini
 
+# Inisialisasi Flask
 app = Flask(__name__)
+
+# Load model yang sudah di-train
 model = tf.keras.models.load_model("sentiment_analysis_model.h5")
 
 # Definisikan tokenizer
 tokenizer = Tokenizer()
-# Tambahkan langkah-langkah konfigurasi tokenizer yang diperlukan, misalnya:
-sequence_dict = tokenizer.word_index
 
+# Definisikan fungsi untuk melakukan prediksi
 @app.route('/predict', methods=['POST'])
 def predict():
+    # Menerima data JSON dari permintaan
     data = request.json
     text = data['text']
 
@@ -46,6 +50,7 @@ def predict():
     # Mengembalikan hasil prediksi dalam bentuk JSON
     return jsonify({'sentiment': sentiment})
 
+# Menjalankan aplikasi Flask
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
 
