@@ -1,0 +1,4 @@
+tensorflow==2.15.0
+Flask==3.0.0
+gunicorn==20.1.0
+# ... tambahkan dependencies lain ...

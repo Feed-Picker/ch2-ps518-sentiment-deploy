@@ -1,0 +1,61 @@
+---
+Input            : Masakan ini sungguh lezat! Rasanya begitu autentik dan mengingatkan saya pada masakan nenek.
+Sequence         : [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 12]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0  1  2  3  4  5  6  7  8  9 10 11  1 12]]
+Prediction       : [[0.01215225 0.03338484 0.9544629 ]]
+Sentiment        : 2 = Positive
+---
+Input            : Porsinya terlalu kecil untuk harganya. Tidak puas setelah makan.
+Sequence         : [[13, 14, 15, 16, 17, 18, 19, 20, 21]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0  0  0  0  0 13 14 15 16 17 18 19 20 21]]
+Prediction       : [[0.12550437 0.44207227 0.43242332]]
+Sentiment        : 1 = Neutral
+---
+Input            : Saya sangat suka dengan kombinasi rasa yang unik pada hidangan ini. Sangat kreatif!
+Sequence         : [[3, 5, 23, 24, 25, 26, 27, 28, 4, 29, 2, 5, 30]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0  3  5 23 24 25 26 27 28  4 29  2  5 30]]
+Prediction       : [[0.03594208 0.52191025 0.4421477 ]]
+Sentiment        : 1 = Neutral
+---
+Input            : Restoran ini selalu memberikan pengalaman makan yang menyenangkan. Pelayanan yang ramah dan makanan yang enak.
+Sequence         : [[31, 2, 32, 33, 34, 7, 1, 35, 36, 1, 37, 4, 38, 1, 39]]
+Padded Sequence  : [[ 0  0  0  0  0 31  2 32 33 34  7  1 35 36  1 37  4 38  1 39]]
+Prediction       : [[0.00756907 0.01130085 0.98113006]]
+Sentiment        : 2 = Positive
+---
+Input            : Rasanya terlalu asin bagi selera saya. Harap ditingkatkan.
+Sequence         : [[5, 8, 40, 41, 42, 3, 43, 44]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0  0  0  0  0  0  5  8 40 41 42  3 43 44]]
+Prediction       : [[0.10071371 0.17410524 0.72518104]]
+Sentiment        : 2 = Positive
+---
+Input            : Harga yang terjangkau untuk kualitas masakan yang luar biasa. Saya pasti akan kembali lagi.
+Sequence         : [[45, 1, 46, 9, 47, 3, 1, 48, 49, 2, 50, 51, 52, 53]]
+Padded Sequence  : [[ 0  0  0  0  0  0 45  1 46  9 47  3  1 48 49  2 50 51 52 53]]
+Prediction       : [[0.0164671  0.06763083 0.9159021 ]]
+Sentiment        : 2 = Positive
+---
+Input            : Sajian ini terlalu pedas. Sebaiknya diberi opsi untuk tingkat kepedasan yang bisa disesuaikan.
+Sequence         : [[54, 2, 5, 55, 56, 57, 58, 6, 59, 60, 1, 61, 62]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0 54  2  5 55 56 57 58  6 59 60  1 61 62]]
+Prediction       : [[0.06843815 0.08948921 0.8420726 ]]
+Sentiment        : 2 = Positive
+---
+Input            : Tempat ini cocok untuk keluarga. Anak-anak saya menyukai menu khusus anak-anaknya.
+Sequence         : [[64, 2, 65, 4, 66, 7, 7, 3, 67, 68, 69, 7, 70]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0 64  2 65  4 66  7  7  3 67 68 69  7 70]]
+Prediction       : [[0.0349801  0.62623197 0.33878785]]
+Sentiment        : 1 = Neutral
+---
+Input            : Makanan ini terlalu manis, membuat saya cepat bosan. Lebih suka hidangan yang lebih seimbang.
+Sequence         : [[15, 2, 4, 72, 73, 3, 74, 75, 16, 13, 14, 1, 16, 76]]
+Padded Sequence  : [[ 0  0  0  0  0  0 15  2  4 72 73  3 74 75 16 13 14  1 16 76]]
+Prediction       : [[0.18875511 0.19701278 0.6142322 ]]
+Sentiment        : 2 = Positive
+---
+Input            : Sangat mengecewakan. Makanan terasa seperti sudah lama disiapkan dan tidak segar.
+Sequence         : [[8, 77, 9, 78, 79, 80, 81, 82, 7, 13, 83]]
+Padded Sequence  : [[ 0  0  0  0  0  0  0  0  0  8 77  9 78 79 80 81 82  7 13 83]]
+Prediction       : [[0.0204097  0.07369877 0.90589154]]
+Sentiment        : 2 = Positive
+---
