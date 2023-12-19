@@ -1,18 +1,20 @@
 # main.py
 # Import library yang dibutuhkan
 from flask import Flask, request, jsonify
-import tensorflow as tf
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.preprocessing.text import Tokenizer  # Tambahkan import ini
+from keras.models import load_model
+from keras.preprocessing.sequence import pad_sequences
+import numpy as np
+import pickle
 
 # Inisialisasi Flask
 app = Flask(__name__)
 
 # Load model yang sudah di-train
-model = tf.keras.models.load_model("sentiment_analysis_model.h5")
+model = load_model("sentiment_analysis_model.h5")
 
 # Definisikan tokenizer
-tokenizer = Tokenizer()
+with open('tokenizer.pkl', 'rb') as tokenizer_file:
+    tokenizer = pickle.load(tokenizer_file)
 
 # Definisikan fungsi untuk melakukan prediksi
 @app.route('/predict', methods=['POST'])
@@ -22,13 +24,12 @@ def predict():
     text = data['text']
 
     # Tokenisasi dan pad teks
-    tokenizer.fit_on_texts([text])
     sequence = tokenizer.texts_to_sequences([text])
     padded_sequence = pad_sequences(sequence, maxlen=20)
 
     # Melakukan prediksi menggunakan model
     prediction = model.predict(padded_sequence)
-    sentiment = int(tf.argmax(prediction, axis=1))
+    sentiment = np.argmax(prediction, axis=1)
 
     # Mengubah hasil prediksi menjadi kategori sentimen
     if sentiment == 0:
@@ -39,20 +40,27 @@ def predict():
         category = 'Positive'
 
     # Print hasil prediksi
-    print('---')
-    print('Input:', text)
-    print('Sequence:', sequence)
-    print('Padded Sequence:', padded_sequence)
-    print('Prediction:', prediction)
-    print('Sentiment:', sentiment, '=', category)
-    print('---')
+    # print('---')
+    # print('Input:', text)
+    # print('Sequence:', sequence)
+    # print('Padded Sequence:', padded_sequence)
+    # print('Prediction:', prediction)
+    # print('Sentiment:', sentiment, '=', category)
+    # print('---')
     
     # Mengembalikan hasil prediksi dalam bentuk JSON
-    return jsonify({'sentiment': sentiment})
+    return jsonify({
+        'text': text,
+        'sequence': sequence,
+        'padded_sequence': padded_sequence.tolist(),
+        'prediction': prediction.tolist(),
+        'sentiment': sentiment.tolist(),
+        'category': category
+        })
 
 # Menjalankan aplikasi Flask
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(debug=False)
 
 
 # @app.route('/predict', methods=['POST'])

@@ -1,4 +1,6 @@
 runtime: python39
+service: sentiment
+
 entrypoint: gunicorn -b :$PORT main:app
 
 handlers:
